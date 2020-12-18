@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Todo List</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/custom.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row fade_in">
+
+        <div class="col-lg-12 text-center">
+          <div class="mt-4" id="todo_zone">
+            <p id="date_text" class="display-4 text-light">Todo List</p>
+
+            <div class="row mt-5 mb-5">
+              <div class="col-md-1 col-xs-12"> </div>
+              <div class="col-md-9 col-xs-12">
+                <div class="d-flex justify-content-center mb-1">
+                  <div class="p-3 mt-0 mb-0 w-100 h-75 form-group shadow bg-light rounded border border-light zoom">
+                    <div class="mt-0 mb-0" id="todo_item" onclick="createTask('taskText');" ondrop="upload_file(event)"
+                      ondragover="return false">
+                      <div class="mt-0 mb-0" id="">
+                        <!-- <p id="date_text" class="display-4 text-dark">To-do List</p> -->
+                        <input type="text" class="form-control" id="todo_input" aria-describedby="todoInput"
+                          placeholder="Worth doing...">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1 col-xs-12">
+                <div class="d-flex justify-content-center">
+                  <div class="p-3 mt-0 mb-0 form-group shadow bg-light rounded border border-light">
+                    <div class="mt-0 mb-0" id="todo_item" onclick="file_explorer();" ondrop="upload_file(event)"
+                      ondragover="return false">
+                      <div class="mt-0 mb-0" id="">
+                        <!-- <p id="date_text" class="display-4 text-dark">To-do List</p> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="#2368a2"
+                          class="bi bi-plus-circle" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd"
+                            d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                          <path fill-rule="evenodd"
+                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-1 col-xs-12"></div>
+              </div>
+            </div>
+            <!-- Task adders lead -->
+
+            <div class="row mt-3">
+              <div class="col-md-1 col-xs-12"></div>
+              <div class="col-md-9 col-xs-12">
+                <div class="d-flex justify-content-center">
+                  <div class="p-3 mt-0 mb-0 w-100 h-75 form-group shadow bg-light rounded border border-light ">
+                    <div class="mt-0 mb-0" id="todo_item" onclick="file_explorer();" ondrop="upload_file(event)"
+                      ondragover="return false">
+                      <div class="mt-0 mb-0" id="">
+                        <h2 class="text-secondary text-left">
+                          CDAP - Create dashboard and prediction solution
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1 col-xs-12">
+                <div class="d-flex justify-content-center mt-1">
+                  <div class="p-3 mt-0 mb-0 form-group shadow bg-light rounded border border-light">
+                    <div class="mt-0 mb-0" id="" onclick="file_explorer();" ondrop="upload_file(event)"
+                      ondragover="return false">
+                      <div class="mt-0 mb-0" id="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#2368a2"
+                          class="bi bi-check-circle" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd"
+                            d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                          <path fill-rule="evenodd"
+                            d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1 col-xs-12"></div>
+            </div>
+
+          </div>
+
+          <div id="msgbox">
+            <p class="display-4 mb-5" id="msgbox_head"></p>
+            <div class="d-flex justify-content-center">
+              <div class="p-3 mt-5 mb-0 w-75 h-75 form-group shadow bg-light rounded border border-light zoom"
+                id="msgbox_body">
+                <div class="spinner mt-3 mb-3" id="spinner">
+                  <div class="bounce1"></div>
+                  <div class="bounce2"></div>
+                  <div class="bounce3"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer">
+      <footer class="mt-auto font-small text-secondary bg-light ">
+        <span class="footer-copyright text-center py-0 ">
+          Made with 🐱 at 🏡 by <a class="text-secondary" href="https://hasithsen.github.io" target="_blank">hsen</a>.
+        </span>
+      </footer>
+    </div>
+
+    <!-- <div class="navbar navbar-default navbar-static-bottom navbar-fixed-bottom">
+      <footer class="mt-auto font-small text-secondary bg-light ">
+        <span class="footer-copyright text-center py-0 ">
+          Made with 🐱 at 🏡 by <a class="text-secondary" href="https://hasithsen.github.io" target="_blank">hsen</a>.
+        </span>
+      </footer>
+    </div> -->
+
+    <footer class="mt-auto page-footer font-small text-secondary bg-light ">
+
+      <!-- <span class="text-secondary text-right">
+        <a href="https://hasithsen.github.io" target="_blank">Donate</a>
+      </span> -->
+      <!-- <div class="footer-copyright text-center py-2">Made with <span class="heart">❤</span> at 🏡</div> -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+
+  </body>
+
+</html>
