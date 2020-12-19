@@ -20,11 +20,24 @@
 }
 
 .zoom {
-  transition: transform .3s; /* Animation */
+  transition: transform .1s; /* Animation */
+}
+.zoom:hover {
+   transform: scale(1.02); 
 }
 
-.zoom:hover {
-  transform: scale(1.02); 
+.float-up {
+  transition: transform .1s; /* Animation */
+}
+.float-up:hover {
+  /* transform: scale(1.02);  */
+  transform: translate(0, -2px); 
+}
+.float-up:active {
+  transform: translate(0, 2px); 
+  /* transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg); */
 }
 
 html {
@@ -157,9 +170,6 @@ body {
   }
 }
 
-/* .file_upload_zone{
-  display:none;
-} */
 #msgbox {
   display:none;
 }
@@ -168,3 +178,4 @@ body {
 body {
   background:#aad4f5 !important;
 }
+

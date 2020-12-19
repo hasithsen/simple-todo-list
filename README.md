@@ -2,4 +2,4 @@
 
 Simple To-do List Webapp
 
-![todo-list.png](/screenshots/todo-list.png?raw=true "Screenshot")
+![simple-todo-list.png](/screenshots/simple-todo-list.png?raw=true "Screenshot")

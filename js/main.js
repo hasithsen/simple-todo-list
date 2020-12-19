@@ -1,25 +1,33 @@
-function createTask(taskText) {
+let taskCount = 0;
+
+function createTask() {
+  let taskText;
+
+  if ($('#todo_input').val()) {
+    taskText = $('#todo_input').val();
+  } else {
+    return;
+  }
+
   newTask = `
-  <div class="row mt-3 fade_in">
+  <div class="row mt-3" id="task_`+ taskCount + `">
     <div class="col-md-1 col-xs-12"></div>
-    <div class="col-md-9 col-xs-12">
+    <div class="col-md-9 col-xs-12" id="todo_item">
       <div class="d-flex justify-content-center">
-        <div class="p-3 mt-0 mb-0 w-100 h-75 form-group shadow bg-light rounded border border-light ">
-          <div class="mt-0 mb-0" id="todo_item" onclick="file_explorer();" ondrop="upload_file(event)"
-            ondragover="return false">
-            <div class="mt-0 mb-0" id="">
+        <div class="p-3 mt-0 mb-0 w-100 h-75 form-group shadow bg-light rounded border border-light">
+          <div class="mt-0 mb-0">
+            <div class="mt-0 mb-0">
               <h2 class="text-secondary text-left">`+ taskText + `</h2>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-1 col-xs-12">
+    <div class="col-md-1 col-xs-12" onclick="removeTask(`+ taskCount + `);">
       <div class="d-flex justify-content-center mt-1">
-        <div class="p-3 mt-0 mb-0 form-group shadow bg-light rounded border border-light">
-          <div class="mt-0 mb-0" id="" onclick="file_explorer();" ondrop="upload_file(event)"
-            ondragover="return false">
-            <div class="mt-0 mb-0" id="">
+        <div class="p-3 mt-0 mb-0 form-group shadow bg-light rounded border border-light float-up">
+          <div class="mt-0 mb-0">
+            <div class="mt-0 mb-0">
               <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#2368a2"
                 class="bi bi-check-circle" viewBox="0 0 16 16">
                 <path fill-rule="evenodd"
@@ -35,7 +43,12 @@ function createTask(taskText) {
     <div class="col-md-1 col-xs-12"></div>
   </div>`;
 
-  $(newTask).appendTo('#todo_zone');
+  $(newTask).hide().appendTo('#todo_zone').fadeIn(300);
+  taskCount++;
+}
+
+function removeTask(id) {
+  $('#task_' + id).hide('fast', function () { $('#task_' + id).remove(); });
 }
 
 $(document).ready(function () {
@@ -54,9 +67,7 @@ $(document).ready(function () {
   ];
   $('#date_text').text(weekdayNames[d.getDay()] + ', ' + monthNames[d.getMonth()] + ' ' + day);
 
-  let taskText = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
   for (let i = 0; i < 0; i++) {
-    createTask(taskText);
+    createTask();
   }
 });
