@@ -2,7 +2,6 @@ let taskCount = 0;
 
 function setDate() {
   let d = new Date();
-  let month = d.getMonth() + 1;
   let day = d.getDate();
 
   const weekdayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -13,14 +12,20 @@ function setDate() {
 }
 
 function createTask() {
-  let taskText;
+  $('#todo_input').focus(); // Set focus to input textbox
 
-  if ($('#todo_input').val()) {
+  let taskText;
+  if ($('#todo_input').val().replace(/\s/g, '').length) {
     taskText = $('#todo_input').val();
+    taskCount++;
   } else {
     return;
   }
 
+  /*
+  tabindex for each task remove button is assigned beggining from 3.
+  Remove task button of each new task is added an enter event listener.
+  */
   newTask = `
   <div class="row mt-3" id="task_`+ taskCount + `">
     <div class="col-md-1 col-xs-12"></div>
@@ -31,9 +36,11 @@ function createTask() {
         </div>
       </div>
     </div>
-    <div class="col-md-1 col-xs-12" onclick="removeTask(`+ taskCount + `);">
+    <div class="col-md-1 col-xs-12 float-up" onclick="removeTask(`+ taskCount + `);" tabindex="` + (2 + taskCount) + `" 
+    id="remove_task_` + taskCount + `" 
+    onkeydown="if (event.keyCode === 13) document.getElementById('remove_task_` + taskCount + `').click();">
       <div class="d-flex justify-content-center mt-1">
-        <div class="p-3 mt-0 mb-0 form-group shadow bg-light rounded border border-light float-up">
+        <div class="p-3 mt-0 mb-0 form-group shadow bg-light rounded border border-light">
           <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#2368a2"
             class="bi bi-check-circle" viewBox="0 0 16 16">
             <path fill-rule="evenodd"
@@ -48,8 +55,7 @@ function createTask() {
   </div>`;
 
   $(newTask).hide().prependTo('#task_zone').show('fast');
-  taskCount++;
-  $('#todo_input').val('');
+  $('#todo_input').val(''); // Empty input textbox value
 }
 
 function removeTask(id) {
@@ -76,13 +82,20 @@ function setBackcolor(color) {
 $(document).ready(function () {
   setDate();
 
-  // Enter event handler to todo_input textbox
-  $("#todo_input").keyup(function (event) {
+  // Add enter event handler to todo_input textbox
+  $('#todo_input').keyup(function (event) {
     if (event.keyCode === 13) {
-      $("#todo_add_button").click();
+      $('#todo_add_button').click();
+    }
+  });
+
+  // Add enter event handler to todo_add_button
+  $('#todo_add_button').keyup(function (event) {
+    if (event.keyCode === 13) {
+      $('#todo_add_button').click();
     }
   });
 
   const colors = ['#aad4f5', '#96f2d7', '#fcc2d7', '#ffa8a8', '#e599f7', '#69db7c', '#ffa94d', '#ced4da'];
   populateColorpicker(colors);
-});;;;
+});

@@ -1,22 +1,16 @@
-.zoom {
-  transition: transform .1s; /* Animation */
-}
-.zoom:hover {
-   transform: scale(1.02); 
-}
-
 .float-up {
   transition: transform .1s; /* Animation */
 }
 .float-up:hover {
-  /* transform: scale(1.02);  */
   transform: translate(0, -2px); 
 }
 .float-up:active {
   transform: translate(0, 2px); 
-  /* transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg); */
+}
+.float-up:focus {
+  transform: translate(0, -2px); 
+  -webkit-filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.1) );
+  filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.1) );
 }
 
 .fine_read {
@@ -102,7 +96,7 @@ body, html {
   min-height: 100%;
   padding: 0%;
   padding-bottom: 0%;
-  transition: background 1 ease-in-out;
+  transition: background 1s ease-in-out;
   -webkit-transition: background 1s ease-in-out;
   -moz-transition: background 1s ease-in-out;
 }
@@ -118,9 +112,3 @@ body, html {
   color: white;
   text-align: center;
 }
-
-/* Display notice if no-js */
-.myclass { /* CSS code for all versions of your page goes here */ }, 
-.js .myclass { /* This CSS code will only show up if JS is enabled */ } and 
-.no-js .myclass { /* This CSS code will only show up if JS is disabled. */ }
-

@@ -18,6 +18,7 @@
 
   <body>
     <div id="back">
+
       <!-- Page Content -->
       <div class="container">
         <div class="row fade_in">
@@ -38,14 +39,14 @@
                 <div class="d-flex justify-content-center mb-1">
                   <div class="p-3 mt-0 mb-0 w-100 h-100 form-group shadow bg-light rounded border border-light">
                     <input type="text" class="form-control" aria-describedby="todoInput" placeholder="Worth doing..."
-                      id="todo_input">
+                      id="todo_input" tabindex="1">
                   </div>
                 </div>
               </div>
               <div class="col-md-1 col-xs-12" onclick="createTask();">
                 <div class="d-flex justify-content-center">
                   <div class="p-3 mt-0 mb-0 form-group shadow bg-light rounded border border-light float-up"
-                    id="todo_add_button">
+                    id="todo_add_button" tabindex="2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="#2368a2"
                       class="bi bi-plus-circle" viewBox="0 0 16 16">
                       <path fill-rule="evenodd"
@@ -60,23 +61,7 @@
             </div>
             <!-- Task adder lead -->
 
-            <div id="task_zone">
-            </div>
-
-            <div id="msgbox">
-              <p class="display-4 mb-5" id="msgbox_head"></p>
-              <div class="d-flex justify-content-center">
-                <div class="p-3 mt-5 mb-0 w-75 h-75 form-group shadow bg-light rounded border border-light zoom"
-                  id="msgbox_body">
-                  <div class="spinner mt-3 mb-3" id="spinner">
-                    <div class="bounce1"></div>
-                    <div class="bounce2"></div>
-                    <div class="bounce3"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+            <div id="task_zone"> </div>
           </div>
 
         </div>
@@ -95,33 +80,12 @@
                     target="_blank">hsen</a>.
                 </span>
               </div>
-              <div class="col-sm mb-1" id="backcolor_selectors">
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#adb5bd" class="bi bi-square-fill"
-                viewBox="0 0 16 16">
-                <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-              </svg>
-              &nbsp; -->
-              </div>
+              <div class="col-sm mb-1" id="backcolor_selectors"> </div>
             </div>
           </div>
         </footer>
       </div>
 
-      <!-- <div class="navbar navbar-default navbar-static-bottom navbar-fixed-bottom">
-      <footer class="mt-auto font-small text-secondary bg-light ">
-        <span class="footer-copyright text-center py-0 ">
-          Made with 🐱 at 🏡 by <a class="text-secondary" href="https://hasithsen.github.io" target="_blank">hsen</a>.
-        </span>
-      </footer>
-    </div> -->
-
-      <footer class="mt-auto page-footer font-small text-secondary bg-light ">
-
-        <!-- <span class="text-secondary text-right">
-        <a href="https://hasithsen.github.io" target="_blank">Donate</a>
-      </span> -->
-        <!-- <div class="footer-copyright text-center py-2">Made with <span class="heart">❤</span> at 🏡</div> -->
-      </footer>
     </div>
 
     <!-- Bootstrap core JavaScript -->
