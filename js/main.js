@@ -98,4 +98,7 @@ $(document).ready(function () {
 
   const colors = ['#aad4f5', '#96f2d7', '#fcc2d7', '#ffa8a8', '#e599f7', '#69db7c', '#ffa94d', '#ced4da'];
   populateColorpicker(colors);
+
+  // Focus todo input box
+  $('#todo_input').focus();
 });
